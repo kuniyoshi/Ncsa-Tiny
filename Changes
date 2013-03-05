@@ -1,5 +1,9 @@
 Revision history for Perl extension Ncsa::Tiny.
 
+0.02  Wed Mar  6 01:02:30 JST 2013
+	- add DESTROY
+	- improbe variable name
+	- add test
 0.01  Wed Mar  6 00:08:27 2013
 	- original version; created by h2xs 1.23 with options
 		-XAn Ncsa::Tiny

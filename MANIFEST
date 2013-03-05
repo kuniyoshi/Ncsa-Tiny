@@ -4,3 +4,4 @@ Makefile.PL
 MANIFEST
 README
 t/01-use.t
+t/02-parse_line.t

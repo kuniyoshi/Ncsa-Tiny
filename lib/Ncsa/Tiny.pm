@@ -9,10 +9,10 @@ use overload q{""} => \&stringify;
 
 our @EXPORT_OK = qw( parse );
 our $AUTOLOAD;
-our $VERSION = "0.01";
+our $VERSION = "0.02";
 
-my @HEADERS = qw( ip id name d1 d2 query status size referer ua );
-my %INDEX   = map { my $name = $_; $name => first_index { $_ eq $name } @HEADERS }
+my @HEADINGS = qw( ip id name d1 d2 query status size referer ua );
+my %INDEX    = map { my $name = $_; $name => first_index { $_ eq $name } @HEADINGS }
               qw( query referer ua );
 
 sub parse { $_ = parse_line( $_ ) }
@@ -29,12 +29,12 @@ sub parse_line {
         $part =~ s{ ["] \z}{}msx;
     }
 
-    my @parts = split m{ }, $line, @HEADERS - @quoted_parts;
+    my @parts = split m{ }, $line, @HEADINGS - @quoted_parts;
 
     splice @parts, $INDEX{query}, 0, shift @quoted_parts;
     push @parts, @quoted_parts; # referer, and ua is at bottom of the list.
 
-    @log{ @HEADERS }                 = @parts;
+    @log{ @HEADINGS }                = @parts;
     $log{date}                       = join q{ }, delete @log{ qw( d1 d2 ) };
     @log{ qw( method url version ) } = split m{ }, $log{query}, 3;
 
@@ -51,6 +51,8 @@ sub AUTOLOAD {
     ( my $property = $AUTOLOAD ) =~ s{.*::}{};
     return $self->{ $property };
 }
+
+sub DESTROY { }
 
 1;
 __END__
