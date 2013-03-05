@@ -9,6 +9,7 @@ use overload q{""} => \&stringify;
 
 our @EXPORT_OK = qw( parse );
 our $AUTOLOAD;
+our $VERSION = "0.01";
 
 my @HEADERS = qw( ip id name d1 d2 query status size referer ua );
 my %INDEX   = map { my $name = $_; $name => first_index { $_ eq $name } @HEADERS }
