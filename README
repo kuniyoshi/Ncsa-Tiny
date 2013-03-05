@@ -1,0 +1,21 @@
+SYNOPSIS
+      $ perl -MNcsa::Tiny=parse -lpe parse <ncsa.log>
+
+DESCRIPTION
+    There are many module exist which parses log file. But i want use it via
+    perl one line command.
+
+  EXPORT
+    None by default.
+
+SEE ALSO
+AUTHOR
+    Kuniyoshi Kouji, <kouji@cpan.org>
+
+COPYRIGHT AND LICENSE
+    Copyright (C) 2013 by Kuniyoshi Kouji
+
+    This library is free software; you can redistribute it and/or modify it
+    under the same terms as Perl itself, either Perl version 5.12.4 or, at
+    your option, any later version of Perl 5 you may have available.
+

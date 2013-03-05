@@ -1,0 +1,6 @@
+Changes
+Makefile.PL
+MANIFEST
+README
+t/Ncsa-Tiny.t
+lib/Ncsa/Tiny.pm
